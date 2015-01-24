@@ -28,6 +28,20 @@ public class Gameplay_MovementTap : MonoBehaviour {
         }
         #endregion 
 
+        if (Input.touchCount == 1)
+        {
+            var touch = Input.touches[0];
+            if (touch.position.x < Screen.width / 2)
+            {
+                movePlayerRight();
+            }
+            else if (touch.position.x > Screen.width / 2)
+            {
+                movePlayerLeft();
+            }
+        }
+
+
     }
 
     void movePlayerLeft()
