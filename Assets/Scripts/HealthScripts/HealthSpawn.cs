@@ -32,17 +32,22 @@ public class HealthSpawn : MonoBehaviour {
 
 	void TimerOnComplete()
 	{
-		timerBetweenSpawn = Random.Range(5.0f, 10.0f); 
-		heartRigidBodySpeed.y = Random.Range (200.0f, 300.0f);
+		timerBetweenSpawn = Random.Range(10.0f, 15.0f); 
+		heartRigidBodySpeed.y = Random.Range (175.0f, 225.0f);
 		SpawnHealth();
 		//Debug.Log("Completed");
 	}
 
 	private void SpawnHealth ()
 	{
+		//set up instatiation position
+		Vector2 healthSpawnPosition = new Vector2(Random.Range(-3, 3), transform.position.y);
+		healthSpawnPosition.y = -5.0f;
+
 		GameObject _heart;
-		_heart = Instantiate(heart, new Vector2(Random.Range(-3, 3), transform.position.y), transform.rotation) as GameObject;
+		_heart = Instantiate(heart, healthSpawnPosition, transform.rotation) as GameObject;
 		_heart.AddComponent<Rigidbody>();
+		_heart.rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
 		_heart.rigidbody.AddForce(heartRigidBodySpeed);
 		_heart.rigidbody.useGravity = false;
 	}

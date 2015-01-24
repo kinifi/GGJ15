@@ -31,7 +31,7 @@ public class CloudSpawn : MonoBehaviour {
     void TimerOnComplete()
     {
         SpawnCloud();
-        Debug.Log("Completed");
+        //Debug.Log("Completed");
     }
 
     void SpawnCloud()
@@ -40,6 +40,7 @@ public class CloudSpawn : MonoBehaviour {
         GameObject _cloud;
         _cloud = Instantiate(Clouds[_ranNum], new Vector2(Random.Range(-3, 3), transform.position.y), transform.rotation) as GameObject;
         _cloud.AddComponent<Rigidbody>();
+		_cloud.rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
         _cloud.rigidbody.AddForce(cloudRigidBodySpeed);
         _cloud.rigidbody.useGravity = false;
     }

@@ -14,7 +14,7 @@ public class playerCollision : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
+        //Debug.Log(other.name);
 		if(other.tag == "Cloud")
 		{
 			//Debug.Log ("We've hit a cloud!");
@@ -24,6 +24,8 @@ public class playerCollision : MonoBehaviour {
 		{
 			//Debug.Log("We're gaining health!");
 			_health.CollectHeart();
+			Destroy(other.gameObject, 0.05f);
 		}
     }
+
 }
