@@ -4,12 +4,12 @@ using System.Collections;
 public class playerCollision : MonoBehaviour {
 
 	//Components to get
-	private Health _hit;
+	private Health _health;
 
 	// Use this for initialization
 	void Start () 
 	{
-		_hit = GameObject.Find ("HealthImage").GetComponent<Health>();
+		_health = GameObject.Find ("HealthImage").GetComponent<Health>();
 	}
 	
 	void OnTriggerEnter(Collider other)
@@ -17,8 +17,13 @@ public class playerCollision : MonoBehaviour {
         Debug.Log(other.name);
 		if(other.tag == "Cloud")
 		{
-			Debug.Log ("We've hit a cloud!");
-			_hit.TakeHit();
+			//Debug.Log ("We've hit a cloud!");
+			_health.TakeHit();
+		}
+		if(other.tag == "Health")
+		{
+			//Debug.Log("We're gaining health!");
+			_health.CollectHeart();
 		}
     }
 }

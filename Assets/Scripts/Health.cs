@@ -22,11 +22,13 @@ public class Health : MonoBehaviour {
 
 	public void TakeHit ()
 	{
+		//decrement the health value no lower than zero
 		if(healthValue - 1 >= 0)
 		{
 			healthValue -= 1;
 			UpdateHealthImage(healthValue);
 		}
+		//otherwise health value equals zero
 		else
 		{
 			healthValue = 0;
@@ -34,8 +36,25 @@ public class Health : MonoBehaviour {
 		}
 	}
 
+	public void CollectHeart ()
+	{
+		//increment the health value no higher than five
+		if(healthValue + 1 < 6)
+		{
+			healthValue += 1;
+			UpdateHealthImage(healthValue);
+		}
+		//otherwise health value equals five
+		else
+		{
+			healthValue = 5;
+			UpdateHealthImage(healthValue);
+		}
+	}
+
 	private void UpdateHealthImage (int healthValue)
 	{
+		//update the health hearts image to reflect the health value
 		switch(healthValue)
 		{
 		case 0:
