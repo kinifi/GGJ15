@@ -39,8 +39,8 @@ public class CloudSpawn : MonoBehaviour {
         int _ranNum = Random.Range(0, Clouds.Length);
         GameObject _cloud;
         _cloud = Instantiate(Clouds[_ranNum], new Vector2(Random.Range(-3, 3), transform.position.y), transform.rotation) as GameObject;
-        _cloud.AddComponent<Rigidbody2D>();
-        _cloud.rigidbody2D.AddForce(cloudRigidBodySpeed);
-        _cloud.rigidbody2D.gravityScale = 0;
+        _cloud.AddComponent<Rigidbody>();
+        _cloud.rigidbody.AddForce(cloudRigidBodySpeed);
+        _cloud.rigidbody.useGravity = false;
     }
 }
