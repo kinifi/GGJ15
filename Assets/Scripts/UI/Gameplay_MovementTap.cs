@@ -4,14 +4,20 @@ using System.Collections;
 public class Gameplay_MovementTap : MonoBehaviour {
 
 
+    public float playerSpeed = 20.0f;
+    private int movementIncrement = 0;
+    private Animator _Anim;
+
 	// Use this for initialization
 	void Start () {
-	
+
+        _Anim = GameObject.Find("Whale").GetComponent<Animator>();
 	}
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        #region keyboard detection
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
             movePlayerLeft();
         }
@@ -20,18 +26,28 @@ public class Gameplay_MovementTap : MonoBehaviour {
         {
             movePlayerRight();
         }
-
+        #endregion 
 
     }
 
     void movePlayerLeft()
     {
-        this.rigidbody.AddForce(new Vector3(-10, 0, 0));
+        if (movementIncrement != -3)
+        {
+            transform.Translate(-1, 0, 0);
+            movementIncrement -= 1;
+            _Anim.SetTrigger("Left");
+        }
     }
 
     void movePlayerRight()
     {
-        this.rigidbody.AddForce(new Vector3(10, 0, 0));
+        if (movementIncrement != 3)
+        {
+            transform.Translate(1, 0, 0);
+            movementIncrement += 1;
+            _Anim.SetTrigger("Right");
+        }
     }
 
     #region touch Public Methods
