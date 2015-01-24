@@ -17,7 +17,8 @@ public class playerCollision : MonoBehaviour {
         Debug.Log(other.name);
 		if(other.tag == "Cloud")
 		{
-			Debug.Log (" 
+			Debug.Log ("We've hit a cloud!");
+			_hit.TakeHit();
 		}
     }
 }
