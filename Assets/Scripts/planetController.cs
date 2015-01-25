@@ -63,7 +63,7 @@ public class planetController : MonoBehaviour {
     {
         resetTimer();
         scaleUp();
-        Debug.Log("Timer Complete");
+        //Debug.Log("Planet Timer Complete");
     }
 
     /// <summary>
@@ -75,7 +75,7 @@ public class planetController : MonoBehaviour {
         {
             transform.localScale = new Vector2(transform.localScale.x + 1, transform.localScale.y + 1);
             _currentScaleSize++;
-            Debug.Log("Scaling Up Planet");
+            //Debug.Log("Scaling Up Planet");
         }
         else
         {
@@ -87,7 +87,6 @@ public class planetController : MonoBehaviour {
     void OnScaleComplete()
     {
         Debug.Log("Earth is done scaling");
-		Destroy(GameObject.Find("CloudSpawner"));
 		Destroy(GameObject.Find("HealthSpawner"));
 		Destroy(GameObject.Find("MultiplierSpawner"));
 		_planet = GameObject.Find("Planet").transform;

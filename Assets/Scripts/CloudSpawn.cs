@@ -6,12 +6,14 @@ public class CloudSpawn : MonoBehaviour {
     public GameObject[] Clouds;
     public float timerBetweenSpawn = 1.0f;
     private float secondarySpawn;
+	[System.NonSerialized]
     public Vector2 cloudRigidBodySpeed;
 
 	// Use this for initialization
 	void Start () {
 
         secondarySpawn = timerBetweenSpawn;
+		cloudRigidBodySpeed = new Vector2(0.0f, 200.0f);
 
 	}
 	

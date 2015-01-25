@@ -5,17 +5,15 @@ public class WindSpawn : MonoBehaviour {
 
 	//Configs
 	private float gameTime;
-	private Vector2 _cloudSpeed;
 	private bool canSpawnWind = false;
 	public GameObject[] Winds;
 	public Vector2 windRigidBodySpeed = new Vector2(0.0f, 200.0f);
-	private float timerBetweenSpawn = 5.0f;
+	private float timerBetweenSpawn = 1.0f;
 	private float secondarySpawn;
 
 	// Use this for initialization
 	void Start () 
 	{
-		_cloudSpeed = GameObject.Find("CloudSpawner").GetComponent<CloudSpawn>().cloudRigidBodySpeed;
 		//set the countdown spawner to the con
 		secondarySpawn = timerBetweenSpawn;
 	}
@@ -28,22 +26,21 @@ public class WindSpawn : MonoBehaviour {
 				//Adjust the cloud speed value based on time since level loaded
 		if(gameTime > 60.0f)
 		{
-			_cloudSpeed = new Vector2(0.0f, 300.0f);
+			GameObject.Find("CloudSpawner").GetComponent<CloudSpawn>().cloudRigidBodySpeed = new Vector2(0.0f, 400.0f);
 			canSpawnWind = true;
 			windRigidBodySpeed = new Vector2(0.0f, 250.0f);
-			//Debug.Log("The cloudSpeed is now 300");
+			Debug.Log("The cloudSpeed is now 400");
 		}
 		else if(gameTime > 30.0f)
 		{
-			_cloudSpeed = new Vector2(0.0f, 250.0f);
+			GameObject.Find("CloudSpawner").GetComponent<CloudSpawn>().cloudRigidBodySpeed = new Vector2(0.0f, 250.0f);
 			canSpawnWind = true;
-			//Debug.Log("The cloudSpeed is now 250");
+			Debug.Log("The cloudSpeed is now 250");
 		}
 		else
 		{
-			_cloudSpeed = new Vector2(0.0f, 200.0f);
 			canSpawnWind = false;
-			//Debug.Log("The cloudSpeed is now 200");
+			Debug.Log("The cloudSpeed is now 200");
 		}
 
 		//Update wind spawning timers
@@ -57,8 +54,7 @@ public class WindSpawn : MonoBehaviour {
 
 	void TimerOnComplete()
 	{
-		timerBetweenSpawn = Random.Range(15.0f, 45.0f); 
-		windRigidBodySpeed.y = Random.Range (175.0f, 225.0f);
+		timerBetweenSpawn = Random.Range(1.0f, 3.0f); 
 		if(canSpawnWind == true)
 		{
 			//Debug.Log ("canSpawnWind is true!");
