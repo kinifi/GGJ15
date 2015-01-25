@@ -22,5 +22,6 @@ public class MainMenu : MonoBehaviour {
 	public void ViewCredits ()
 	{
 		Debug.Log ("Loading the Credits Scene");
+		Application.LoadLevel("Credits");
 	}
 }

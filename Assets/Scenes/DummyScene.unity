@@ -1529,7 +1529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82ea5442ec23034690144aab2f40b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdownTimer: 5
+  countdownTimer: 3
   scaleSizeToEndTimer: 30
 --- !u!212 &1588059617
 SpriteRenderer:
