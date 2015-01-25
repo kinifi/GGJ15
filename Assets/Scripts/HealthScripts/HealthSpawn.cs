@@ -32,7 +32,7 @@ public class HealthSpawn : MonoBehaviour {
 
 	void TimerOnComplete()
 	{
-		timerBetweenSpawn = Random.Range(10.0f, 15.0f); 
+		timerBetweenSpawn = Random.Range(15.0f, 45.0f); 
 		heartRigidBodySpeed.y = Random.Range (175.0f, 225.0f);
 		SpawnHealth();
 		//Debug.Log("Completed");
