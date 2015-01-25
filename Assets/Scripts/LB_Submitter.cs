@@ -4,12 +4,36 @@ using System.Collections;
 public class LB_Submitter : MonoBehaviour {
 
     private static int scoreOne, scoreTwo, scoreThree, scoreFour, scoreFive;
+	private static int currentScore;
 
 	// Use this for initialization
 	void Start () {
 	 
 	}
-	
+
+	public static void setCurrentScore(int _score)
+	{
+		if (PlayerPrefs.HasKey("currentScore"))
+		{
+			PlayerPrefs.SetInt("currentScore", 0);
+		}
+	}
+
+	public static int getCurrentScore()
+	{
+		if (PlayerPrefs.HasKey("currentScore"))
+		{
+			int _score = PlayerPrefs.GetInt("currentScore");
+			return _score;
+		}
+		else
+		{
+			Debug.LogWarning("Current Score Doesn't Exist");
+			return 0;
+		}
+	}
+
+
 	public static void submitScore(int _score)
     {
         loadScores();
