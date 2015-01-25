@@ -19,11 +19,6 @@ public class MainMenu : MonoBehaviour {
 		Application.LoadLevel("Main");
 	}
 
-	public void ViewHighScores ()
-	{
-		Debug.Log ("Loading the HighScores Scene");
-	}
-
 	public void ViewCredits ()
 	{
 		Debug.Log ("Loading the Credits Scene");
