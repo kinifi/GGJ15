@@ -9,7 +9,7 @@ public class planetController : MonoBehaviour {
     public int scaleSizeToEndTimer = 10;
     private float secondaryTimer;
 	private Animator _anim;
-	public GameObject LeaderboardPanel;
+	//public GameObject LeaderboardPanel;
 	private Transform _player, _planet;
 	private bool canCountDown = false;
 
@@ -106,13 +106,14 @@ public class planetController : MonoBehaviour {
 	{
 		Transform _player = GameObject.Find("Player").transform;
 		//_player.gameObject.SetActive(false);
+		audio.Play();
 		_anim.SetTrigger("Splash");
 		Invoke("leaderboard", 0.5f);
 	}
 
 	void leaderboard()
 	{
-		LeaderboardPanel.SetActive(true);
+		//LeaderboardPanel.SetActive(true);
 		Debug.Log("Leaderboard Score to Submit: " + int.Parse((GameObject.Find("ScoreValue").GetComponent<Text>().text)));
 		LB_Submitter.submitScore(int.Parse((GameObject.Find("ScoreValue").GetComponent<Text>().text)));
 		Application.LoadLevel("Highscores");
