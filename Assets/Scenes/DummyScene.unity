@@ -591,6 +591,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 748413043}
+  - 114: {fileID: 748413044}
   m_Layer: 0
   m_Name: WindSpawner
   m_TagString: Untagged
@@ -610,6 +611,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &748413044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 748413042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0f7b3e99c8c794e95acc204d96dd1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Winds:
+  - {fileID: 100000, guid: 72ee96828e28ab14aa4e508bfa9bfd90, type: 2}
+  - {fileID: 100000, guid: 3488195394ac8964689795aee8279eb0, type: 2}
+  windRigidBodySpeed: {x: 0, y: 200}
 --- !u!1 &756793423
 GameObject:
   m_ObjectHideFlags: 0
