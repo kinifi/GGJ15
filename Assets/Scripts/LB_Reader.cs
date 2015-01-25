@@ -35,6 +35,6 @@ public class LB_Reader : MonoBehaviour {
 
     void setScore()
     {
-        _ScoreDisplay.text = m_Score + "";
+        _ScoreDisplay.text = "Score: " + m_Score + "";
     }
 }

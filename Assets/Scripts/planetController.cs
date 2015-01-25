@@ -105,9 +105,9 @@ public class planetController : MonoBehaviour {
 	void scalePlayer()
 	{
 		Transform _player = GameObject.Find("Player").transform;
-		_player.gameObject.SetActive(false);
+		//_player.gameObject.SetActive(false);
 		_anim.SetTrigger("Splash");
-		Invoke("leaderboard", 0.2f);
+		Invoke("leaderboard", 0.5f);
 	}
 
 	void leaderboard()
@@ -115,6 +115,7 @@ public class planetController : MonoBehaviour {
 		LeaderboardPanel.SetActive(true);
 		Debug.Log("Leaderboard Score to Submit: " + int.Parse((GameObject.Find("ScoreValue").GetComponent<Text>().text)));
 		LB_Submitter.submitScore(int.Parse((GameObject.Find("ScoreValue").GetComponent<Text>().text)));
+		Application.LoadLevel("Highscores");
 	}
 
 }
