@@ -115,7 +115,8 @@ public class planetController : MonoBehaviour {
 		//LeaderboardPanel.SetActive(true);
 		Debug.Log("Leaderboard Score to Submit: " + int.Parse((GameObject.Find("ScoreValue").GetComponent<Text>().text)));
 		LB_Submitter.submitScore(int.Parse((GameObject.Find("ScoreValue").GetComponent<Text>().text)));
-		Application.LoadLevel("Highscores");
+		LB_Submitter.setCurrentScore(int.Parse((GameObject.Find("ScoreValue").GetComponent<Text>().text)));
+		Application.LoadLevel("Success");
 	}
 
 }

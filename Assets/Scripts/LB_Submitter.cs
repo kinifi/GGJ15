@@ -15,7 +15,7 @@ public class LB_Submitter : MonoBehaviour {
 	{
 		if (PlayerPrefs.HasKey("currentScore"))
 		{
-			PlayerPrefs.SetInt("currentScore", 0);
+			PlayerPrefs.SetInt("currentScore", _score);
 		}
 	}
 

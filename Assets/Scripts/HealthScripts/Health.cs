@@ -23,10 +23,19 @@ public class Health : MonoBehaviour {
 	public void TakeHit ()
 	{
 		//decrement the health value no lower than zero
-		if(healthValue - 1 >= 0)
+		if(healthValue - 1 > 0)
 		{
 			healthValue -= 1;
 			UpdateHealthImage(healthValue);
+		}
+		else if(healthValue <= 0)
+		{
+			Debug.Log ("Oh no! You died!!!");
+			Debug.Log("Leaderboard Score to Submit: " + int.Parse((GameObject.Find("ScoreValue").GetComponent<Text>().text)));
+			LB_Submitter.submitScore(int.Parse((GameObject.Find("ScoreValue").GetComponent<Text>().text)));
+			LB_Submitter.setCurrentScore(int.Parse((GameObject.Find("ScoreValue").GetComponent<Text>().text)));
+			Debug.Log ("Launching the failed scene");
+			Application.LoadLevel("Failed");
 		}
 		//otherwise health value equals zero
 		else

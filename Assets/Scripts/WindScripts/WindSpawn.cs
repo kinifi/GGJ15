@@ -29,18 +29,18 @@ public class WindSpawn : MonoBehaviour {
 			GameObject.Find("CloudSpawner").GetComponent<CloudSpawn>().cloudRigidBodySpeed = new Vector2(0.0f, 400.0f);
 			canSpawnWind = true;
 			windRigidBodySpeed = new Vector2(0.0f, 250.0f);
-			Debug.Log("The cloudSpeed is now 400");
+			//Debug.Log("The cloudSpeed is now 400");
 		}
 		else if(gameTime > 30.0f)
 		{
 			GameObject.Find("CloudSpawner").GetComponent<CloudSpawn>().cloudRigidBodySpeed = new Vector2(0.0f, 250.0f);
 			canSpawnWind = true;
-			Debug.Log("The cloudSpeed is now 250");
+			//Debug.Log("The cloudSpeed is now 250");
 		}
 		else
 		{
 			canSpawnWind = false;
-			Debug.Log("The cloudSpeed is now 200");
+			//Debug.Log("The cloudSpeed is now 200");
 		}
 
 		//Update wind spawning timers
