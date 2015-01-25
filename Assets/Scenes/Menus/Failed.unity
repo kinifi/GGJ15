@@ -216,7 +216,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 649046421}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: c83ea2e6d89ee6f4db4b0a28d1cbee32, type: 2}
   m_CullingMode: 0
@@ -488,7 +488,7 @@ GameObject:
   - 222: {fileID: 1755396155}
   - 114: {fileID: 1755396154}
   m_Layer: 5
-  m_Name: Title
+  m_Name: GameOver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
