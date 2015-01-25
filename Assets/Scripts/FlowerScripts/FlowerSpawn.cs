@@ -4,10 +4,9 @@ using System.Collections;
 public class FlowerSpawn : MonoBehaviour {
 
 	public GameObject Flower;
-	public float timerBetweenSpawn = 2.5f;
+	private float timerBetweenSpawn = 3.0f;
 	private float secondarySpawn;
-	[System.NonSerialized]
-	public Vector2 flowerRigidBodySpeed;
+	private Vector2 flowerRigidBodySpeed;
 
 	// Use this for initialization
 	void Start () 
@@ -42,7 +41,6 @@ public class FlowerSpawn : MonoBehaviour {
 
 		GameObject _flower;
 		_flower = Instantiate(Flower, flowerSpawnPosition, transform.rotation) as GameObject;
-		_flower.AddComponent<Rigidbody>();
 		_flower.rigidbody.AddForce(flowerRigidBodySpeed);
 		_flower.rigidbody.useGravity = false;
 	}

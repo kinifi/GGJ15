@@ -1593,7 +1593,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Flower: {fileID: 100000, guid: 1ef98d1a1f8f1e64399389b2d597f863, type: 2}
-  timerBetweenSpawn: 1
 --- !u!1 &1847511098
 GameObject:
   m_ObjectHideFlags: 0
