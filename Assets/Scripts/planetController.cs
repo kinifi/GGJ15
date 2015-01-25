@@ -4,6 +4,8 @@ using System.Collections;
 public class planetController : MonoBehaviour {
 
     public float countdownTimer = 2.0f;
+    private int _currentScaleSize;
+    public int scaleSizeToEndTimer = 10;
     private float secondaryTimer;
 
 	// Use this for initialization
@@ -58,8 +60,21 @@ public class planetController : MonoBehaviour {
     /// </summary>
     void scaleUp()
     {
-        transform.localScale = new Vector2(transform.localScale.x + 1, transform.localScale.y + 1);
-        Debug.Log("Scaling Up Planet");
+        if (_currentScaleSize != scaleSizeToEndTimer)
+        {
+            transform.localScale = new Vector2(transform.localScale.x + 1, transform.localScale.y + 1);
+            _currentScaleSize++;
+            Debug.Log("Scaling Up Planet");
+        }
+        else
+        {
+            OnScaleComplete();
+        }
+    }
+
+    void OnScaleComplete()
+    {
+        Debug.Log("Earth is done scaling");
     }
 
 }
