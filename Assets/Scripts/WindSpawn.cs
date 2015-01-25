@@ -20,12 +20,12 @@ public class WindSpawn : MonoBehaviour {
 		//Adjust the scoredPoints value based on time since level loaded
 		if(gameTime > 60.0f)
 		{
-			scoredPoints = 3;
+			gameTime = 3;
 			//Debug.Log ("The scoredPoints value is 3");
 		}
 		else if(gameTime > 30.0f)
 		{
-			scoredPoints = 2;
+			gameTime = 2;
 			//Debug.Log("The scoredPoints value is 2");
 		}
 	}
