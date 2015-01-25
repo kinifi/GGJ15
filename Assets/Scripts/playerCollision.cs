@@ -65,6 +65,9 @@ public class playerCollision : MonoBehaviour {
 		}
 		if(other.tag == "Flower")
 		{
+			GameObject.Find ("FlowerBowlWhale").GetComponent<SpriteRenderer>().enabled = true;
+			GameObject.Find ("Whale").GetComponent<SpriteRenderer>().enabled = false;
+			Invoke("DisableFlowerBowl", 0.25f);
 			_scoring.score = _scoring.score + 25;
 			_scoring.PostScore();
 			Destroy(other.gameObject, 0.05f);
@@ -92,6 +95,12 @@ public class playerCollision : MonoBehaviour {
 	private void DisableX3 ()
 	{
 		GameObject.Find ("x3Whale").GetComponent<SpriteRenderer>().enabled = false;
+		GameObject.Find ("Whale").GetComponent<SpriteRenderer>().enabled = true;
+	}
+
+	private void DisableFlowerBowl ()
+	{
+		GameObject.Find ("FlowerBowlWhale").GetComponent<SpriteRenderer>().enabled = false;
 		GameObject.Find ("Whale").GetComponent<SpriteRenderer>().enabled = true;
 	}
 }
