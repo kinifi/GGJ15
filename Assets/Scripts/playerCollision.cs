@@ -22,18 +22,26 @@ public class playerCollision : MonoBehaviour {
 		{
 			//Debug.Log ("We've hit a cloud!");
 			_health.TakeHit();
+			GameObject.Find ("HitWhale").GetComponent<SpriteRenderer>().enabled = true;
+			GameObject.Find ("Whale").GetComponent<SpriteRenderer>().enabled = false;
+			Invoke("DisableHit", 0.25f);
 		}
 		if(other.tag == "Health")
 		{
 			//Debug.Log("We're gaining health!");
 			_health.CollectHeart();
+			GameObject.Find ("HealthWhale").GetComponent<SpriteRenderer>().enabled = true;
+			GameObject.Find ("Whale").GetComponent<SpriteRenderer>().enabled = false;
+			Invoke("DisableHealth", 0.25f);
 			Destroy(other.gameObject, 0.05f);
 		}
 		if(other.tag == "Multiplier")
 		{
-
 			if(other.name == "x2multiplier(Clone)")
 			{
+				GameObject.Find ("x2Whale").GetComponent<SpriteRenderer>().enabled = true;
+				GameObject.Find ("Whale").GetComponent<SpriteRenderer>().enabled = false;
+				Invoke("DisableX2", 0.25f);
 				Debug.Log ("We've collected an x2 multiplier!");
 				_scoring.score = _scoring.score * 2;
 				_scoring.PostScore();
@@ -41,10 +49,13 @@ public class playerCollision : MonoBehaviour {
 			}
 			else if(other.name == "x3multiplier(Clone)")
 			{
+				GameObject.Find ("x3Whale").GetComponent<SpriteRenderer>().enabled = true;
+				GameObject.Find ("Whale").GetComponent<SpriteRenderer>().enabled = false;
+				Invoke("DisableX3", 0.25f);
 				Debug.Log ("We've collected an x3 multiplier!");
 				_scoring.score = _scoring.score * 3;
 				_scoring.PostScore();
-				Invoke ("ResetMultiplier", 2.05f);
+				Destroy(other.gameObject, 0.05f);
 			}
 			else
 			{
@@ -54,8 +65,27 @@ public class playerCollision : MonoBehaviour {
 		}
     }
 
-	private void ResetMultiplier ()
+	private void DisableHit ()
 	{
-		_scoring.pickUpMultiplier = 0;
+		GameObject.Find ("HitWhale").GetComponent<SpriteRenderer>().enabled = false;
+		GameObject.Find ("Whale").GetComponent<SpriteRenderer>().enabled = true;
+	}
+
+	private void DisableHealth ()
+	{
+		GameObject.Find ("HealthWhale").GetComponent<SpriteRenderer>().enabled = false;
+		GameObject.Find ("Whale").GetComponent<SpriteRenderer>().enabled = true;
+	}
+
+	private void DisableX2 ()
+	{
+		GameObject.Find ("x2Whale").GetComponent<SpriteRenderer>().enabled = false;
+		GameObject.Find ("Whale").GetComponent<SpriteRenderer>().enabled = true;
+	}
+
+	private void DisableX3 ()
+	{
+		GameObject.Find ("x3Whale").GetComponent<SpriteRenderer>().enabled = false;
+		GameObject.Find ("Whale").GetComponent<SpriteRenderer>().enabled = true;
 	}
 }
