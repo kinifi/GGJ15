@@ -63,6 +63,12 @@ public class playerCollision : MonoBehaviour {
 				Destroy(other.gameObject, 0.05f);
 			}
 		}
+		if(other.tag == "Flower")
+		{
+			_scoring.score = _scoring.score + 25;
+			_scoring.PostScore();
+			Destroy(other.gameObject, 0.05f);
+		}
     }
 
 	private void DisableHit ()

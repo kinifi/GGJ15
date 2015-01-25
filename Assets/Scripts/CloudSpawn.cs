@@ -5,7 +5,7 @@ public class CloudSpawn : MonoBehaviour {
 
     public GameObject[] Clouds;
     public float timerBetweenSpawn = 1.0f;
-    private float secondarySpawn;
+    public float secondarySpawn;
 	[System.NonSerialized]
     public Vector2 cloudRigidBodySpeed;
 

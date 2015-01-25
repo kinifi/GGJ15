@@ -4,7 +4,7 @@ using System.Collections;
 public class FlowerSpawn : MonoBehaviour {
 
 	public GameObject Flower;
-	public float timerBetweenSpawn = 1.0f;
+	public float timerBetweenSpawn = 2.5f;
 	private float secondarySpawn;
 	[System.NonSerialized]
 	public Vector2 flowerRigidBodySpeed;
